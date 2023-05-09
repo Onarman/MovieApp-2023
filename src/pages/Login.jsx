@@ -1,36 +1,55 @@
-import React,{useState}from 'react'
+import React, { useState } from 'react';
+import {AiFillEyeInvisible,AiFillEye} from "react-icons/ai"
+
 
 const Login = () => {
-	const [username, setUsername] = useState('');
-	const [password, setPassword] = useState('');
-  
-	const handleUsernameChange = (e) => {
-	  setUsername(e.target.value);
-	};
-  
-	const handlePasswordChange = (e) => {
-	  setPassword(e.target.value);
-	};
-  
-	const handleSubmit = (e) => {
-	  e.preventDefault();
-	  // Giriş yapma işlemleri
-	};
-  
-	return (
-	  <form onSubmit={handleSubmit}>
-		<label>
-		  Kullanıcı Adı:
-		  <input type="text" value={username} onChange={handleUsernameChange} />
-		</label>
-		<label>
-		  Şifre:
-		  <input type="password" value={password} onChange={handlePasswordChange} />
-		</label>
-		<button type="submit">Giriş Yap</button>
-		<button type="button">Kayıt Ol</button>
-	  </form>
-	);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(`Email: ${email}, Password: ${password}`);
+    // Burada login işlemleri yapılabilir.
+  };
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
   };
 
-export default Login
+  return (
+    <div className="login-container">
+      <form className="login-form" onSubmit={handleSubmit}>
+        <h2>Login</h2>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <div className="login-password">
+          <input
+            type={showPassword ? "text" : "password"}
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <span onClick={handleShowPassword} className="password-icon">
+              {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+            </span>
+          </div>
+          
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  );
+};
+
+export default Login;

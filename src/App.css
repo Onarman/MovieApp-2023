@@ -32,6 +32,11 @@
   background-color: rgb(22, 75, 173);
   color: white;
 }
+
+.link{
+  color: #fff;
+text-decoration: none;
+}
 .buttons-usern {
   display: flex;
 }
@@ -60,7 +65,7 @@ button {
 .footer-container {
   position: fixed;
   display: flex;
-   justify-content: space-between;
+  justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
   width: 100%;
@@ -75,11 +80,9 @@ button {
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .footer-nav {
-
   list-style: none;
   margin: 0;
   padding: 0;
@@ -105,19 +108,16 @@ button {
 }
 
 .footer-logo img {
-  
   max-width: 100px;
   margin-right: 1rem;
 }
 
 .footer-social {
-
   display: flex;
   justify-content: center;
 }
 
 .footer-social a {
-
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -147,7 +147,7 @@ button {
   text-align: center;
   font-size: 12px;
   color: #777;
-} 
+}
 
 .movies {
   max-width: 1200px;
@@ -158,6 +158,7 @@ button {
   max-width: 1200px;
 }
 
+
 .movie-card {
   min-width: 150px;
   width: calc(25% - 40px);
@@ -165,7 +166,6 @@ button {
   background-color: #ece8e8;
   border-radius: 0.5rem;
   cursor: pointer;
-
 }
 .movie-card:hover {
   transform: scale(1.05);
@@ -175,7 +175,7 @@ button {
 .movie-card img {
   width: 100%;
   height: auto;
-  border-radius: 5px 5px 0 0 ;
+  border-radius: 5px 5px 0 0;
 }
 
 .card-buttom {
@@ -191,4 +191,184 @@ button {
   border: 1px solid black;
   padding: 2px;
   border-radius: 5px;
+}
+.movie-card {
+  position: relative; /* Ebeveyn elemana göre konumlandırma yapmak için */
+}
+.like-icon{
+  position: absolute; 
+  top: 10px; 
+  right: 10px; 
+  color: white;
+  font-size: 2rem;
+}
+
+.movie-card .liked {
+  top: 10px; 
+  right: 10px; 
+  color: red;
+  font-size: 2rem; 
+}
+
+/* login */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form {
+  margin-top: -10rem;
+  width: 30%;
+  min-width: 25rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.login-password{
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 5px;
+}
+.login-password input{
+  border: none;
+}
+.login-password input:focus{
+  outline: none;
+}
+.form-group {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0069d9;
+}
+
+/* register */
+.register-container {
+  margin-top: -5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.register-form {
+
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  min-width: 25rem;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0069d9;
+}
+
+.password-input{
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.password-input input:focus {
+  outline: none;
+}
+
+.password-input input{
+  border: none;
+}
+
+.password-input span {
+  display: flex;
+  align-items: center;
+  padding: 0 5px ;
+}
+
+.password-toggle {
+  position: relative;
+  margin-left: -2.5rem;
+}
+
+.password-toggle button {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  color: #777;
+  cursor: pointer;
+}
+
+.password-toggle button:focus {
+  outline: none;
+}
+
+.password-toggle button:hover {
+  color: #333;
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const currentUser = "asd"
@@ -9,9 +10,9 @@ const Navbar = () => {
   let userName = "Ömer";
   return (
     <div className="container-navbar">
-      {/* <Link to={"/"}> */}
+      <Link to={"/"} className='link'>
       <h3>React Movie App</h3>
-      {/* </Link> */}
+      </Link>
       {
       currentUser ? (
         <div className="buttons-usern">
