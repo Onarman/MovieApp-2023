@@ -1,32 +1,29 @@
 #root {
-
   position: absolute;
   top: 0;
   margin: 0;
-  padding: 0; 
+  padding: 0;
   left: 0;
-  height: 100vh; 
-  width: 100vw; 
+  height: 100vh;
+  width: 100vw;
   box-sizing: border-box;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
+}
 
-} 
-
-.container{
+.container {
   position: absolute;
   top: 0;
   left: 0;
   box-sizing: border-box;
   width: 100%;
   height: 100vh;
-
 }
-.container-navbar{
+.container-navbar {
   top: 0;
   left: 0;
   box-sizing: border-box;
-  padding: .5rem;
+  padding: 0.5rem;
   width: 100vw;
   height: 10%;
   display: flex;
@@ -34,25 +31,23 @@
   justify-content: space-between;
   background-color: rgb(22, 75, 173);
   color: white;
-  
 }
-.buttons-usern{
+.buttons-usern {
   display: flex;
 }
 
-.buttons{
-  padding: .5rem;
+.buttons {
+  padding: 0.5rem;
 }
-button{
-  margin: .5rem;
+button {
+  margin: 0.5rem;
   border-radius: 5px;
-  padding: .5rem;
+  padding: 0.5rem;
   font-weight: bold;
   cursor: pointer;
 }
 
-.body{
-
+.body {
   height: 75%;
   width: 100vw;
   box-sizing: border-box;
@@ -60,30 +55,31 @@ button{
   left: 0;
   box-sizing: border-box;
 }
-
+/* 
 /* footer */
 .footer-container {
-  box-sizing: border-box;
-  width:100%;
-  height: 20%;
-  background-color: #f2f2f2;
-  padding: 50px 10px;
   position: fixed;
-  bottom: 0;
+  display: flex;
+   justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #f2f2f2;
+  padding: 10px 10px;
+  /* bottom: 0; */
   left: 0;
-  
+  bottom: 0;
 }
 
 .footer-content {
-  /* max-width: 1200px; */
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+
 }
 
 .footer-nav {
+
   list-style: none;
   margin: 0;
   padding: 0;
@@ -109,17 +105,19 @@ button{
 }
 
 .footer-logo img {
+  
   max-width: 100px;
   margin-right: 1rem;
 }
 
 .footer-social {
+
   display: flex;
   justify-content: center;
-  margin-top: 30px;
 }
 
 .footer-social a {
+
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -145,8 +143,52 @@ button{
 }
 
 .footer-bottom {
-  margin-top: 30px;
+  margin: 5px;
   text-align: center;
   font-size: 12px;
   color: #777;
+} 
+
+.movies {
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.movie-card {
+  min-width: 150px;
+  width: calc(25% - 40px);
+  margin: 20px 20px;
+  background-color: #ece8e8;
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+}
+.movie-card:hover {
+  transform: scale(1.05);
+  transition: transform 0.4s ease-in-out;
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px 5px 0 0 ;
+}
+
+.card-buttom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+  padding: 0 0.5rem;
+}
+
+.vote {
+  border: 1px solid black;
+  padding: 2px;
+  border-radius: 5px;
 }

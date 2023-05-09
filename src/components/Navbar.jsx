@@ -1,24 +1,27 @@
-// import React from 'react'
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
 
 const Navbar = () => {
-  const [currentUser, setCurrentUser] = useState(false);
+  const currentUser = "asd"
+
+  const logout =()=>{
+    console.log("logout");
+  }
   let userName = "Ömer";
   return (
     <div className="container-navbar">
       {/* <Link to={"/"}> */}
       <h3>React Movie App</h3>
       {/* </Link> */}
-      {currentUser ? (
+      {
+      currentUser ? (
         <div className="buttons-usern">
           <h5>{userName}</h5>
-          <button>Logout</button>
+          <button onClick={()=>logout}>Logout</button>
         </div>
       ) : (
         <div className="buttons">
-          <button>Login</button>
-          <button>Register</button>
+          <button >Login</button>
+          <button >Register</button>
         </div>
       )}
     </div>
