@@ -1,15 +1,13 @@
-import './App.css'
-import Main from './pages/Main'
-import AppRouter from './router/AppRouter'
+import "./App.css";
+
+import AppRouter from "./router/AppRouter";
 
 function App() {
-
-
   return (
-      <div>
-        <AppRouter />
-      </div>
-  )
+    <div className="app">
+      <AppRouter />
+    </div>
+  );
 }
 
-export default App
+export default App;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -8,9 +9,18 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
+  const navigate = useNavigate()
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Kaydetme işlemleri burada yapılabilir
+    const user = {name,surname,email,password}
+    sessionStorage.setItem("user", JSON.stringify(user))
+    // history.push("/login")
+    navigate("/")
+    setName("")
+    setSurname("")
+    setEmail("");
+    setPassword("");
   };
 
   const handleShowPassword = () => {
@@ -41,6 +51,7 @@ const Register = () => {
             value={surname}
             onChange={(e) => setSurname(e.target.value)}
             required
+            
           />
         </div>
         <div className="form-group">
@@ -70,7 +81,7 @@ const Register = () => {
             </span>
           </div>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit" onClick={handleSubmit}>Register</button>
       </form>
     </div>
   );

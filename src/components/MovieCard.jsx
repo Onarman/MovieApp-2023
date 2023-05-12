@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {AiFillHeart} from "react-icons/ai"
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const IMG_API = "https://image.tmdb.org/t/p/w500";
 const defaultImage =
@@ -7,13 +9,16 @@ const defaultImage =
 
 const MovieCard = ({ id, title, poster_path, vote_average }) => {
   const [like, setLike] = useState(true)
+  const navigate = useNavigate()
+  const {currentUser} = useContext(AuthContext)
 
   const handleLike =()=>{
     setLike(!like)
   }
   return (
 
-      <div className="movie-card">
+      <div className="movie-card"onClick={()=> {navigate("/details/" +id)
+      !currentUser && console.log("Please login to see detail");}}>
        <div className="card-content">
         <img
           src={poster_path ? IMG_API + poster_path : defaultImage}

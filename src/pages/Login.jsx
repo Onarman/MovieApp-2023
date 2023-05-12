@@ -10,7 +10,13 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(`Email: ${email}, Password: ${password}`);
-    // Burada login işlemleri yapılabilir.
+    const storedUser = sessionStorage.getItem("user");
+    const user = {email,password};
+    if (storedUser && JSON.parse(storedUser).email === user.email && JSON.parse(storedUser) .password === user.password){
+      console.log("Login Successful");
+    }else{
+      console.log("Login Failed");
+    }
   };
   const handleShowPassword = () => {
     setShowPassword(!showPassword);

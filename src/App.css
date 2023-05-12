@@ -372,3 +372,9 @@ button:hover {
 .password-toggle button:hover {
   color: #333;
 }
+
+.detail-container {
+  margin: 4rem auto;
+  width: 75%;
+  border: 1px solid lightgray;
+}

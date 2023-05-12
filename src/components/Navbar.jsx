@@ -1,13 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 const Navbar = () => {
-  const currentUser = "asd"
+  const {currentUser,setCurrentUser} = useContext(AuthContext)// eğer {currentUser} şeklinde yazmazsak currentUser'ın değerine değil value içindeki currentUser a eşitlenir.bu yüzden currentUser null döner
+  const navigate = useNavigate()
+
 
   const logout =()=>{
-    console.log("logout");
+    setCurrentUser(false)
+    sessionStorage.removeItem("user");
+    navigate("/")
+    console.log("loggedout");
   }
-  let userName = "Ömer";
+
   return (
     <div className="container-navbar">
       <Link to={"/"} className='link'>
@@ -16,13 +22,13 @@ const Navbar = () => {
       {
       currentUser ? (
         <div className="buttons-usern">
-          <h5>{userName}</h5>
-          <button onClick={()=>logout}>Logout</button>
+          <h5>{currentUser.name}</h5>
+          <button onClick={logout}>Logout</button>
         </div>
       ) : (
         <div className="buttons">
-          <button >Login</button>
-          <button >Register</button>
+          <button onClick={()=> navigate("/login")} >Login</button>
+          <button onClick={()=>navigate("/register")} >Register</button>
         </div>
       )}
     </div>
