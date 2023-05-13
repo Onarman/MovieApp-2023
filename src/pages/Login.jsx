@@ -1,22 +1,36 @@
-import React, { useState } from 'react';
+import { useContext, useState } from 'react';
 import {AiFillEyeInvisible,AiFillEye} from "react-icons/ai"
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
+import { toastErrorNotify, toastSuccessNotify } from '../helpers/Toastify';
 
 
 const Login = () => {
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (e) => {
+  const {setCurrentUser} = useContext(AuthContext)
+  const navigate = useNavigate()
+
+  const handleLogin = (e) => {
     e.preventDefault();
     console.log(`Email: ${email}, Password: ${password}`);
     const storedUser = sessionStorage.getItem("user");
     const user = {email,password};
     if (storedUser && JSON.parse(storedUser).email === user.email && JSON.parse(storedUser) .password === user.password){
       console.log("Login Successful");
+      setCurrentUser(JSON.parse(storedUser));
+      navigate("/")
+      toastSuccessNotify("Login Successfully!")
     }else{
       console.log("Login Failed");
+      toastErrorNotify("Login Failed!!")
     }
+    setEmail("")
+    setPassword("")
+   
   };
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -24,7 +38,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
+      <form className="login-form" onSubmit={handleLogin}>
         <h2>Login</h2>
         <div className="form-group">
           <label htmlFor="email">Email</label>

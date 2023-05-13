@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import { GetMovies } from '../context/GetMoviesContext'
 import { Link, useParams } from "react-router-dom";
 import VideoSection from "../components/VideoSection";
 
@@ -11,10 +10,10 @@ const MovieDetail = () => {
   const {id} = useParams();
   const { title, overview, release_date, vote_count,vote_average, poster_path} = movieDetail;
 
-  const api = "b3e44ae813fd28033f407a2a8ac67ae3";
-  const movieDetailBaseUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${api}`;
+  const apiKey = "b3e44ae813fd28033f407a2a8ac67ae3";
+  const movieDetailBaseUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`;
  
-  const videoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${api}`;
+  const videoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}`;
   const baseImageUrl = "https://image.tmdb.org/t/p/w1280";
 
   const defaultImage =
@@ -34,14 +33,18 @@ const MovieDetail = () => {
     <div className="detail-container">
       <div className="movie-detail">
         <h1>{title}</h1>
+        {videoKey && <VideoSection videoKey={videoKey} />}
         <div className="main-overview">
-          <div className="img">
-            <img src={poster_path ? baseImageUrl + poster_path : defaultImage} alt="..." />
+          <div className="left-overview">
+            <div className="detail-img">
+              <img src={poster_path ? baseImageUrl + poster_path : defaultImage} alt="..." />
+            </div>
           </div>
           <div className="right-overview">
+          
             <h3>Overview</h3>
             <p>{overview}</p>
-            {videoKey && <VideoSection videoKey={videoKey} />}
+            
             <ul className="list-group">
               <li className="list-group-item">{"Relase Date :  " + release_date}</li>
               <li className="list-group-item">{"Rate : " + vote_average}</li>

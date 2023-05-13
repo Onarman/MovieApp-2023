@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import {AiFillHeart} from "react-icons/ai"
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { toastWarnNotify } from "../helpers/Toastify";
 
 const IMG_API = "https://image.tmdb.org/t/p/w500";
 const defaultImage =
@@ -18,7 +19,7 @@ const MovieCard = ({ id, title, poster_path, vote_average }) => {
   return (
 
       <div className="movie-card"onClick={()=> {navigate("/details/" +id)
-      !currentUser && console.log("Please login to see detail");}}>
+      !currentUser && toastWarnNotify("Please log in to see detail")}}>
        <div className="card-content">
         <img
           src={poster_path ? IMG_API + poster_path : defaultImage}

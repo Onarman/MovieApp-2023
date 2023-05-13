@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { toastSuccessNotify } from "../helpers/Toastify";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -15,12 +16,13 @@ const Register = () => {
     e.preventDefault();
     const user = {name,surname,email,password}
     sessionStorage.setItem("user", JSON.stringify(user))
-    // history.push("/login")
-    navigate("/")
+    
     setName("")
     setSurname("")
     setEmail("");
     setPassword("");
+    navigate("/")
+    toastSuccessNotify("Register Successfully")
   };
 
   const handleShowPassword = () => {

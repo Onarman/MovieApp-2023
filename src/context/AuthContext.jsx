@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext();
 const AuthContextProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
     setCurrentUser(JSON.parse(sessionStorage.getItem("user")));
