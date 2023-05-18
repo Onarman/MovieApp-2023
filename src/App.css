@@ -33,6 +33,10 @@
   color: white;
 }
 
+.container-navbar h3{
+  cursor: pointer;
+}
+
 .link{
   color: #fff;
 text-decoration: none;
@@ -462,7 +466,18 @@ button:hover {
 
 
 
-.video-card-body{
-
-
+.filter-sort-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
+
+#sortSelect{
+  height: 2rem;
+  border-radius: 5px;
+  margin-left: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
