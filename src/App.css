@@ -474,10 +474,109 @@ button:hover {
 }
 
 #sortSelect{
-  height: 2rem;
+  margin-top:.8rem;
+  height: 2.4rem;
   border-radius: 5px;
   margin-left: 5px;
   border: 1px solid #ccc;
   font-size: 16px;
 }
 
+/* Slider */
+.movie-slider {
+  width: 100%;
+  margin: 20px 0;
+  height: 35rem;
+}
+
+/* .movie-slider .slick-slide {
+  padding: 0 5px; /* Boşluğu azaltmak için yatay padding değerini düşürün */
+} */
+
+.movie-slider .slick-list {
+  margin: 0 -5px; /* Boşluğu azaltmak için yatay margin değerini düşürün */
+}
+
+.movie-slider .slick-prev,
+.movie-slider .slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border: none;
+  color: #333;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.movie-slider .slick-prev {
+  left: 0;
+}
+
+.movie-slider .slick-next {
+  right: 0;
+}
+
+.movie-slider .slick-prev p,
+.movie-slider .slick-next p {
+  margin: 0;
+}
+
+.movie-slider .slick-prev:hover,
+.movie-slider .slick-next:hover {
+  background-color: #f0f0f0;
+}
+
+.movie-slider .slick-slide .slider-card-buttom  {
+  /* background-color: #ece8e8; */
+  min-width: 150px;
+  width: calc(20% - 40px);padding: 0 5px;
+  width: 20rem; /* Film resimlerinin genişliğini %100 olarak ayarlayın */
+  height: auto; /* Otomatik yükseklik ayarı */
+  object-fit: cover; /* Resimlerin orantılı bir şekilde sığmasını sağlayın */
+}
+
+.movie-slider .slick-slide img {
+  /* background-color: transparent; */
+  margin: 0 auto;
+  padding: 0 5px;
+  width: 20rem; /* Film resimlerinin genişliğini %100 olarak ayarlayın */
+  height: auto; /* Otomatik yükseklik ayarı */
+  object-fit: cover; /* Resimlerin orantılı bir şekilde sığmasını sağlayın */
+}
+.movie-slider .slider-movie-content{
+  background-color: transparent;
+  width: 20rem; 
+  border-radius: 15px;
+
+  
+ 
+}
+.slider-card-buttom{
+  width: 19rem; 
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider-vote{
+  border: 1px solid #ece8e8 ;
+  margin-right: 10px;
+}
+
+.movie-slider button.slick-arrow {
+  width: 60px; 
+  height: 60px; 
+  background-color: #fff; 
+  color: #000; 
+  font-size: 20px; /* İstenilen font boyutu */
+  border: 1px solid #ece8e8;
+}
+
+.movie-slider button.slick-arrow:hover {
+  background-color: #000; /* Hover durumunda arkaplan rengi */
+  color: #fff; /* Hover durumunda metin rengi */
+  
+}

@@ -1,12 +1,11 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import MovieCard from "../components/MovieCard";
-
-import { GetMovies } from "../context/GetMoviesContext";
-import { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { GetMovies } from '../context/GetMoviesContext';
+import MovieCard from '../components/MovieCard';
+import Navbar from '../components/Navbar';
+import MovieSlider from '../components/MovieSlider';
 
 const Main = () => {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
 
   const inputRef = useRef(null);
   useEffect(() => {
@@ -27,7 +26,7 @@ const Main = () => {
     event.preventDefault();
     const searchInput = event.target.elements.searchInput;
     setSearchValue(searchInput.value);
-    searchInput.value = "";
+    searchInput.value = '';
   };
 
   return (
@@ -36,7 +35,7 @@ const Main = () => {
       <div className="filter-sort-container">
         <div className="filter">
           <form onSubmit={handleSearch}>
-            <input type="text" ref={inputRef} name="searchInput" placeholder="Search Movie... " />
+            <input type="text" ref={inputRef} name="searchInput" placeholder="Search Movie..." />
             <button type="submit">Search</button>
           </form>
         </div>
@@ -51,7 +50,7 @@ const Main = () => {
           </select>
         </div>
       </div>
-
+      <MovieSlider />
       <div className="body">
         <div className="movies d-flex justify-center flex-wrap">
           {loading ? (
@@ -59,13 +58,12 @@ const Main = () => {
               <span className="sr-only">Loading...</span>
             </div>
           ) : filteredMovies.length === 0 ? (
-            <div>{movies && "No Found Movies"}</div>
+            <div>{movies && 'No Found Movies'}</div>
           ) : (
             filteredMovies.map((movie) => <MovieCard key={movie.id} {...movie} />)
           )}
         </div>
       </div>
-      {/* <Footer /> */}
     </div>
   );
 };
